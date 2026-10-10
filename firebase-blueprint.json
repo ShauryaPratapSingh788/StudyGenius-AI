@@ -1,0 +1,100 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email"]
+    },
+    "StudyNote": {
+      "title": "StudyNote",
+      "description": "Academic study note",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "topic": { "type": "string" },
+        "academicLevel": { "type": "string" },
+        "overview": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "isFavorite": { "type": "boolean" }
+      },
+      "required": ["id", "title", "subject", "topic"]
+    },
+    "Flashcard": {
+      "title": "Flashcard",
+      "description": "Spaced repetition flashcard",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "front": { "type": "string" },
+        "back": { "type": "string" },
+        "deckName": { "type": "string" },
+        "subject": { "type": "string" },
+        "reviewStatus": { "type": "string", "enum": ["new", "learning", "mastered"] }
+      },
+      "required": ["id", "front", "back", "deckName"]
+    },
+    "StudyTask": {
+      "title": "StudyTask",
+      "description": "Study task and assignment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "priority": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "completed": { "type": "boolean" }
+      },
+      "required": ["id", "title", "dueDate", "completed"]
+    },
+    "QuizResult": {
+      "title": "QuizResult",
+      "description": "Completed quiz score and result",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "quizTitle": { "type": "string" },
+        "subject": { "type": "string" },
+        "topic": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "score": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "percentage": { "type": "number" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["id", "quizTitle", "score", "totalQuestions"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Root user profile document"
+    },
+    "/users/{userId}/notes/{noteId}": {
+      "schema": { "$ref": "#/entities/StudyNote" },
+      "description": "User personal study notes"
+    },
+    "/users/{userId}/flashcards/{cardId}": {
+      "schema": { "$ref": "#/entities/Flashcard" },
+      "description": "User flashcards"
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/StudyTask" },
+      "description": "User planner tasks"
+    },
+    "/users/{userId}/quizzes/{quizId}": {
+      "schema": { "$ref": "#/entities/QuizResult" },
+      "description": "User quiz assessment scores"
+    }
+  }
+}

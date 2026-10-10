@@ -1,0 +1,6 @@
+{
+  "name": "StudyGenius AI",
+  "description": "Comprehensive AI-powered academic companion featuring intelligent study assistant, structured notes generator, dynamic quiz creation, flashcards, study planner, and performance analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

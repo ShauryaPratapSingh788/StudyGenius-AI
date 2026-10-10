@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyGenius AI</title>
+    <meta name="description" content="Comprehensive AI-powered academic companion featuring intelligent study assistant, structured notes generator, dynamic quiz creation, flashcards, study planner, and performance analytics." />
+    <meta property="og:title" content="StudyGenius AI" />
+    <meta property="og:description" content="Comprehensive AI-powered academic companion featuring intelligent study assistant, structured notes generator, dynamic quiz creation, flashcards, study planner, and performance analytics." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      // Gracefully prevent unhandled rejection/error noise from dev WebSocket HMR in proxied preview environments
+      window.addEventListener('unhandledrejection', function(event) {
+        if (
+          event.reason &&
+          (event.reason.message?.includes('WebSocket') ||
+           event.reason.message?.includes('closed without opened') ||
+           event.reason?.toString()?.includes('WebSocket'))
+        ) {
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('error', function(event) {
+        if (
+          event.message &&
+          (event.message.includes('WebSocket') ||
+           event.message.includes('closed without opened'))
+        ) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
